@@ -6,33 +6,36 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 
 const SKILL_CATEGORIES: SkillCategory[] = [
   {
+    id: 'programming',
     title: 'Programming Languages',
     subtitle: 'Core development languages',
     icon: <Code size={20} className="text-brand-500" />,
     skills: ['Python', 'SQL', 'Dart', 'HTML / CSS', 'C++', 'Java'],
   },
   {
+    id: 'ai-ml',
     title: 'AI & Machine Learning',
     subtitle: 'Deep Learning & Vision Transformers',
     icon: <Brain size={20} className="text-emerald-500" />,
     skills: [
-      'Machine Learning',
-      'Deep Learning',
-      'Computer Vision (ViTs)',
-      'Natural Language Processing (NLP)',
-      'LangChain & RAG Systems',
+      { name: 'Machine Learning', highlight: true },
+      { name: 'Deep Learning', highlight: true },
+      { name: 'Computer Vision (ViTs)', highlight: true },
+      { name: 'Natural Language Processing (NLP)', highlight: true },
+      { name: 'LangChain & RAG Systems', highlight: true },
       'PaddleOCR',
       'Generative Adversarial Networks (GANs)',
       'Supervised & Unsupervised Learning',
     ],
   },
   {
+    id: 'data-bi',
     title: 'Data Analytics & Business Intelligence',
     subtitle: 'Dashboards & KPI reporting',
     icon: <Database size={20} className="text-indigo-500" />,
     skills: [
-      'Power BI',
-      'Data Analytics',
+      { name: 'Power BI', highlight: true },
+      { name: 'Data Analytics', highlight: true },
       'Data Visualization & Dashboards',
       'SQL Query Optimization',
       'Time-Series Forecasting',
@@ -40,11 +43,12 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
+    id: 'mobile',
     title: 'Mobile Application Development',
     subtitle: 'Cross-platform mobile apps',
     icon: <Smartphone size={20} className="text-purple-500" />,
     skills: [
-      'Flutter & Dart',
+      { name: 'Flutter & Dart', highlight: true },
       'State Management (Provider / Bloc)',
       'Firebase Integration',
       'REST APIs & JSON',
@@ -52,6 +56,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
+    id: 'marketing',
     title: 'Digital Marketing & Strategy',
     subtitle: 'Market research & strategy',
     icon: <Megaphone size={20} className="text-amber-500" />,
@@ -63,6 +68,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
+    id: 'soft-skills',
     title: 'Tools & Soft Skills',
     subtitle: 'Collaboration & agile tools',
     icon: <Users size={20} className="text-rose-500" />,
@@ -105,7 +111,7 @@ export const Skills: React.FC = () => {
         {/* Category Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SKILL_CATEGORIES.map((category, idx) => (
-            <SkillCategoryCard key={idx} category={category} index={idx} />
+            <SkillCategoryCard key={category.id || idx} category={category} index={idx} />
           ))}
         </div>
       </Container>

@@ -8,12 +8,15 @@ export interface SkillItem {
   highlight?: boolean
 }
 
+export type SkillType = string | SkillItem
+
 export interface SkillCategory {
-  id: string
+  id?: string
   title: string
-  description: string
+  subtitle?: string
+  description?: string
   icon: React.ReactNode
-  skills: SkillItem[]
+  skills: SkillType[]
 }
 
 interface SkillCategoryCardProps {
@@ -22,6 +25,8 @@ interface SkillCategoryCardProps {
 }
 
 export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, index }) => {
+  const sub = category.subtitle || category.description
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
@@ -44,27 +49,32 @@ export const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ category, 
               <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-brand-500 transition-colors">
                 {category.title}
               </h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">{category.description}</p>
+              {sub && <p className="text-xs text-zinc-500 dark:text-zinc-400">{sub}</p>}
             </div>
           </div>
 
           {/* Interactive Skill Badge Pills */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {category.skills.map((skill, idx) => (
-              <motion.span
-                key={idx}
-                whileHover={{ scale: 1.06, y: -2 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                className={cn(
-                  'cursor-default px-3 py-1.5 rounded-xl text-xs font-mono font-medium transition-all select-none',
-                  skill.highlight
-                    ? 'bg-brand-500/15 text-brand-600 dark:text-brand-400 border border-brand-500/30 shadow-sm'
-                    : 'bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700/60 hover:border-zinc-400 dark:hover:border-zinc-500',
-                )}
-              >
-                {skill.name}
-              </motion.span>
-            ))}
+            {category.skills.map((skill, idx) => {
+              const name = typeof skill === 'string' ? skill : skill.name
+              const highlight = typeof skill === 'string' ? false : skill.highlight
+
+              return (
+                <motion.span
+                  key={idx}
+                  whileHover={{ scale: 1.06, y: -2 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  className={cn(
+                    'cursor-default px-3 py-1.5 rounded-xl text-xs font-mono font-medium transition-all select-none',
+                    highlight
+                      ? 'bg-brand-500/15 text-brand-600 dark:text-brand-400 border border-brand-500/30 shadow-sm'
+                      : 'bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700/60 hover:border-zinc-400 dark:hover:border-zinc-500',
+                  )}
+                >
+                  {name}
+                </motion.span>
+              )
+            })}
           </div>
         </div>
 
