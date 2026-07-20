@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import { Trophy, Zap, Globe, Lightbulb, Cpu, Award, Users, HeartHandshake } from 'lucide-react'
 import CompetitionCard, { CompetitionItem } from './CompetitionCard'
 import { Container } from '@/components/ui/Container'

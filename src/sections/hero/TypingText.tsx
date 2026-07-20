@@ -22,7 +22,7 @@ export const TypingText: React.FC<TypingTextProps> = ({
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex]
 
-    let timeout: NodeJS.Timeout
+    let timeout: ReturnType<typeof setTimeout>
 
     if (isDeleting) {
       timeout = setTimeout(() => {

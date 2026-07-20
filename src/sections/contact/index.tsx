@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 import ContactInfoCards from './ContactInfoCards'
 import ContactForm from './ContactForm'

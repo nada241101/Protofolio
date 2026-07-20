@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { GraduationCap, Briefcase, Microscope, Layers } from 'lucide-react'
+import { Briefcase, Microscope, Layers } from 'lucide-react'
 import EducationCard from './EducationCard'
 import TimelineItem, { TimelineData } from './TimelineItem'
 import { Container } from '@/components/ui/Container'

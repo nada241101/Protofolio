@@ -3,7 +3,8 @@ import { motion, HTMLMotionProps } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import { useMouseGlow } from '@/hooks/useMouseGlow'
 
-export interface CardProps extends HTMLMotionProps<'div'> {
+export interface CardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
+  children?: React.ReactNode
   variant?: 'glass' | 'default' | 'subtle' | 'outline'
   enableGlow?: boolean
   glowColor?: string

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle2, User, Mail, MessageSquare, Tag } from 'lucide-react'
+import { Send, CheckCircle2, User, Mail, Tag } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { Input, Textarea } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
