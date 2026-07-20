@@ -75,6 +75,7 @@ export const Hero: React.FC = () => {
                   phrases={[
                     'AI & Machine Learning Engineer',
                     'Data & Business Intelligence Analyst',
+                    'Mobile App Developer (Flutter)',
                     'Computer Vision & NLP Developer',
                     'Digital Marketing & Strategy Enthusiast',
                   ]}

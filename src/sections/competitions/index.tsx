@@ -1,11 +1,27 @@
 import React from 'react'
-import { Trophy, Zap, Globe, Lightbulb, Cpu, Award, Users, HeartHandshake } from 'lucide-react'
+import { Trophy, Zap, Globe, Lightbulb, Cpu, Award, Users, HeartHandshake, Brain, LineChart } from 'lucide-react'
 import CompetitionCard, { CompetitionItem } from './CompetitionCard'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { ScrollReveal } from '@/components/animations/ScrollReveal'
 
 const COMPETITIONS_DATA: CompetitionItem[] = [
+  {
+    id: 'national-ai-hackathon',
+    title: 'National AI Hackathon',
+    date: '2025',
+    badge: 'Real-Time CV Prototype',
+    description: 'Prototyped a computer vision solution under a 24-hour deadline, from data collection through a working real-time demo.',
+    icon: <Brain size={20} className="text-emerald-500" />,
+  },
+  {
+    id: 'data-science-case-challenge',
+    title: 'Data Science Case Challenge',
+    date: '2025',
+    badge: 'Predictive Modeling',
+    description: 'Built and presented a predictive model against a live business dataset, judged on both accuracy and stakeholder-ready storytelling.',
+    icon: <LineChart size={20} className="text-indigo-500" />,
+  },
   {
     id: 'ideal-student',
     title: 'Ideal Student Competition',

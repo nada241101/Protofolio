@@ -24,6 +24,48 @@ const PROJECTS_DATA: Project[] = [
     featured: true,
   },
   {
+    id: 'sage-rag',
+    title: 'Sage — LangChain RAG Assistant',
+    subtitle: 'A retrieval-augmented assistant answering questions grounded in a private document base.',
+    category: 'ai',
+    date: '2026',
+    tags: ['LangChain', 'RAG', 'Prompting', 'Python', 'NLP'],
+    bullets: [
+      'Built the chunking and retrieval pipeline, tuned prompts for factual grounding, and evaluated against a held-out question set.',
+      'Developed a retrieval-augmented assistant answering questions grounded in a private document base.',
+    ],
+    githubUrl: GITHUB_URL,
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    id: 'vision-guard',
+    title: 'VisionGuard — Real-Time Monitoring',
+    subtitle: 'A real-time computer vision system for attention and safety monitoring.',
+    category: 'ai',
+    date: '2026',
+    tags: ['OpenCV', 'CNN', 'Real-Time', 'Computer Vision', 'Transfer Learning'],
+    bullets: [
+      'Combined OpenCV/dlib facial landmark tracking with a transfer-learned CNN tuned for low-latency inference.',
+      'Developed a real-time computer vision system for attention and safety monitoring.',
+    ],
+    githubUrl: GITHUB_URL,
+    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    id: 'insight-board',
+    title: 'InsightBoard — KPI Dashboard',
+    subtitle: 'An interactive Power BI dashboard suite consolidating raw operational data into clean KPI reporting.',
+    category: 'data',
+    date: '2026',
+    tags: ['Power BI', 'Figma', 'Statistics', 'SQL', 'Data Visualization'],
+    bullets: [
+      'Consolidated raw operational data into clean KPI reporting with a Figma-designed information hierarchy.',
+      'Applied statistical analysis behind every metric to deliver actionable business intelligence insights.',
+    ],
+    githubUrl: GITHUB_URL,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+  },
+  {
     id: 'chronos-insight',
     title: 'ChronosInsight',
     subtitle: 'AI Manuscript Restoration | Python • ViTs • GANs • OpenCV • NLP',
@@ -106,6 +148,11 @@ export const Projects: React.FC = () => {
     return p.category === activeTab
   })
 
+  const getCount = (cat: ProjectCategory) => {
+    if (cat === 'all') return PROJECTS_DATA.length
+    return PROJECTS_DATA.filter((p) => p.category === cat).length
+  }
+
   return (
     <section
       id="projects"
@@ -126,7 +173,7 @@ export const Projects: React.FC = () => {
               Enterprise AI Platforms & Engineering Projects
             </h2>
             <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Demonstrating expertise in AI document management, manuscript restoration with ViTs & GANs, emissions forecasting platforms, and cross-platform applications.
+              Demonstrating expertise in AI document management, LangChain RAG assistants, computer vision monitoring, Power BI KPI dashboards, and cross-platform applications.
             </p>
           </div>
         </ScrollReveal>
@@ -142,7 +189,7 @@ export const Projects: React.FC = () => {
                 : 'glass-panel text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
             )}
           >
-            All Projects ({PROJECTS_DATA.length})
+            All Projects ({getCount('all')})
           </button>
           <button
             onClick={() => setActiveTab('ai')}
@@ -153,7 +200,7 @@ export const Projects: React.FC = () => {
                 : 'glass-panel text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
             )}
           >
-            AI & Machine Learning (2)
+            AI & Machine Learning ({getCount('ai')})
           </button>
           <button
             onClick={() => setActiveTab('data')}
@@ -164,7 +211,7 @@ export const Projects: React.FC = () => {
                 : 'glass-panel text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
             )}
           >
-            Data & Sustainability (1)
+            Data & Sustainability ({getCount('data')})
           </button>
           <button
             onClick={() => setActiveTab('mobile')}
@@ -175,7 +222,7 @@ export const Projects: React.FC = () => {
                 : 'glass-panel text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
             )}
           >
-            Mobile Apps (2)
+            Mobile Apps ({getCount('mobile')})
           </button>
           <button
             onClick={() => setActiveTab('research')}
@@ -186,7 +233,7 @@ export const Projects: React.FC = () => {
                 : 'glass-panel text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100',
             )}
           >
-            Green Tech Research (1)
+            Green Tech Research ({getCount('research')})
           </button>
         </div>
 
